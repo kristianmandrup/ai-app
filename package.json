@@ -22,16 +22,18 @@
   ],
   "main": "lib/ai-app",
   "bin": {
-      "ai-app": "bin/ai-app.js"
+    "ai-app": "bin/ai-app.js"
   },
   "engines": {
-      "node": ">= 0.10.36",
-      "npm": ">=1.4.28"
+    "node": ">= 0.10.36",
+    "npm": ">=1.4.28"
   },
   "scripts": {
     "test": "make test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.15.0"
+  },
   "devDependencies": {
     "chai": "~2.1.2",
     "mocha": "~2.2.1"
