@@ -6,25 +6,26 @@
 Install the module with: `npm install ai-app`
 
 ```javascript
-var ai-app = require('ai-app');
-ai-app.awesome(); // "hello "
+const app = require('ai-app');
 ```
 
 ## Documentation
 
-#### .awesome(name)
-
-**Parameter**: `name`
-**Type**: `String`
-**Example**: `Livia`
-
-The 'awesome' method is responsible for showing a name.
-
-How to use this method
-
-```javascript
-ai-app.awesome('livia'); // "hello livia"
+```js
+  create: function(name)
+  install: function(name)
+  uninstall: function(name)
+  layout: {
+    create: function(name) // create app layout
+    install: function(name)
+    uninstall: function(name)
+  }
+  pwa: {
+    create: function(name)
+  }
 ```
+
+Note: `pwa` is a Progressive Web App (manifest, service worker etc.) to make it almost function like a native app.
 
 ## Contributing
 
