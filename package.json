@@ -32,9 +32,8 @@
     "test": "make test"
   },
   "dependencies": {
-    "inquirer": "^1.1.2",
-    "lodash": "^4.15.0",
-    "ai-core": "^0.1.0"
+    "ai-core": "^0.1.0",
+    "fs-extra": "^0.30.0"
   },
   "devDependencies": {
     "chai": "~2.1.2",
