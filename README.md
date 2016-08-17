@@ -9,23 +9,58 @@ Install the module with: `npm install ai-app`
 const app = require('ai-app');
 ```
 
-## Documentation
+## Commands API
 
 ```js
-  create: function(name)
+  create: function(srcLayout)
   install: function(name)
-  uninstall: function(name)
+  uninstall: function()
   layout: {
-    create: function(name) // create app layout
-    install: function(name)
+    create: function(name, layout) // create app layout
+    install: function(name, repo)
     uninstall: function(name)
   }
   pwa: {
-    create: function(name)
+    create: function(layout)
+    install: function(repo)
+    uninstall: function()
   }
 ```
 
 Note: `pwa` is a Progressive Web App (manifest, service worker etc.) to make it almost function like a native app.
+
+### CLI
+
+- `ai-app -h` - index of commands and how to call them
+- `ai-app create <app|layout|pwa> [name] [layout]` - create an app artifact
+- `ai-app install <app|layout|pwa> [name]` - install an app artifact
+- `ai-app uninstall <app|layout|pwa> [name]` - uninstall an app artifact
+- `ai-app list <layout>` - list registered layouts
+
+### create
+
+- `ai-app create app` - create the main src layout for the app
+- `ai-app create app multi` - create the main src layout for the app using 'multi' app layout 
+- `ai-app create app simple` - ...  using 'simple' app layout
+
+- `ai-app create layout` - create an app layout
+- `ai-app create layout user` - create an app layout named 'user'
+- `ai-app create layout guest simple` - craete an app layout named 'guest' using 'simple' layout
+
+- `ai-app create pwa` - create a pwa
+- `ai-app create pwa simple` - create a pwa using 'simple' layout
+
+### install
+
+- `ai-app install app kristianmandrup/my-app` - install src layout from repo 
+- `ai-app install layout user kristianmandrup/my-app` - install app layout from repo
+- `ai-app install pwa kristianmandrup/my-pwa` - install pwa from repo
+
+### uninstall
+
+- `ai-app uninstall app` - uninstall all sub apps
+- `ai-app uninstall app user` - uninstall the sub-app user 
+- `ai-app uninstall pwa` - remove the current pwa
 
 ## Contributing
 
