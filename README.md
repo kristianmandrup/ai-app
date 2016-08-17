@@ -2,6 +2,9 @@
 
 > App management for Aurelia
 
+Will likely be integrated with [monterey](https://github.com/monterey-framework/monterey) at some point in the future.
+For our vision, please see the [moneterey book](https://aurelia-ui-toolkits.gitbooks.io/monterey-overview/content/)
+
 ## Getting Started
 Install the module with: `npm install ai-app`
 
