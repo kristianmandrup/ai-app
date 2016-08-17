@@ -62,6 +62,40 @@ Note: `pwa` is a Progressive Web App (manifest, service worker etc.) to make it 
 - `ai-app uninstall app user` - uninstall the sub-app user 
 - `ai-app uninstall pwa` - remove the current pwa
 
+## The players
+
+### app
+
+The app of an Aurelia CLI generate project lives in `/src`.
+The app has a src layout, which typically consists of `resources`, `assets`, sub-apps etc.
+
+The app is generated via the `app` type, either created from a registered/custom layout or downloaded from a repo.
+
+### sub apps (layout)
+
+For complex apps, it can make sense with a `multi` app layout, with at least the following sub-apps:
+- guest (not logged in)
+- user (logged in)
+- admin (logged in with admin role)
+- ...
+
+Each of the sub-apps are generated with a specific layout. A sub-app can itself be a multi app layout 
+for a truly nested application! 
+
+Sub-apps are generated via the `layout` type, either created from a registered/custom layout or downloaded from a repo.
+
+### app components
+
+An app consists of sub-apps and components (generally referred to as `app components`) which can be nested. 
+When installed, each app component can have an `install.json` file for installing its dependencies.
+These are traversed depth first to generate the full `install.json` higher up in the hierarchy.
+
+### Progressive web apps (pwa)
+
+Finally, a `pwa` can be created, installed from repo or uninstalled. Just like apps, 
+they can have different registered/custom layouts. 
+A pwa is also an app component with an (optional) `install.json` file.
+
 ## Contributing
 
 Please submit all issues and pull requests to the [kristianmandrup/ai-app](https://github.com/kristianmandrup/ai-app) repository!
