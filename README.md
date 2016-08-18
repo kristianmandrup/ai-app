@@ -23,15 +23,19 @@ const app = require('ai-app');
 ```js
   create: function(srcLayout)
   install: function(name)
-  uninstall: function()
+  uninstall: function(),
+  bundle: function(name),
+  unbundle: function(name),  
   skeleton: {
     create: function(name, skeleton) // create app skeleton
-    install: function(name, repo)
-    uninstall: function(name)
-  }
+    install: function(name, repo),
+    uninstall: function(name),
+    bundle: function(name),
+    unbundle: function(name)
+  },
   pwa: {
-    create: function(skeleton)
-    install: function(repo)
+    create: function(skeleton),
+    install: function(repo),
     uninstall: function()
   }
 ```
