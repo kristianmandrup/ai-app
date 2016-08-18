@@ -12,19 +12,25 @@ Install the module with: `npm install ai-app`
 const app = require('ai-app');
 ```
 
+## Terminology
+
+- layout/skeleton: the folder structure of an app artifact, such as the /src folder (app) or the individualt sub-apps within.
+- repo: repository
+- pwa: Progressive Web App
+
 ## Commands API
 
 ```js
   create: function(srcLayout)
   install: function(name)
   uninstall: function()
-  layout: {
-    create: function(name, layout) // create app layout
+  skeleton: {
+    create: function(name, skeleton) // create app skeleton
     install: function(name, repo)
     uninstall: function(name)
   }
   pwa: {
-    create: function(layout)
+    create: function(skeleton)
     install: function(repo)
     uninstall: function()
   }
@@ -35,28 +41,28 @@ Note: `pwa` is a Progressive Web App (manifest, service worker etc.) to make it 
 ### CLI
 
 - `ai-app -h` - index of commands and how to call them
-- `ai-app create <app|layout|pwa> [name] [layout]` - create an app artifact
-- `ai-app install <app|layout|pwa> [name]` - install an app artifact
-- `ai-app uninstall <app|layout|pwa> [name]` - uninstall an app artifact
-- `ai-app list <layout>` - list registered layouts
+- `ai-app create <app|skeleton|pwa> [name] [skeleton]` - create an app artifact
+- `ai-app install <app|skeleton|pwa> [name]` - install an app artifact
+- `ai-app uninstall <app|skeleton|pwa> [name]` - uninstall an app artifact
+- `ai-app list <skeleton>` - list registered skeleton
 
 ### create
 
-- `ai-app create app` - create the main src layout for the app
-- `ai-app create app multi` - create the main src layout for the app using 'multi' app layout 
-- `ai-app create app simple` - ...  using 'simple' app layout
+- `ai-app create app` - create the main src skeleton for the app
+- `ai-app create app multi` - create the main src skeleton for the app using 'multi' app skeleton 
+- `ai-app create app simple` - ...  using 'simple' app skeleton
 
-- `ai-app create layout` - create an app layout
-- `ai-app create layout user` - create an app layout named 'user'
-- `ai-app create layout guest simple` - craete an app layout named 'guest' using 'simple' layout
+- `ai-app create skeleton` - create an app skeleton
+- `ai-app create skeleton user` - create an app skeleton named 'user'
+- `ai-app create skeleton guest simple` - craete an app skeleton named 'guest' using 'simple' skeleton
 
 - `ai-app create pwa` - create a pwa
-- `ai-app create pwa simple` - create a pwa using 'simple' layout
+- `ai-app create pwa simple` - create a pwa using 'simple' pwa skeleton
 
 ### install
 
-- `ai-app install app kristianmandrup/my-app` - install src layout from repo 
-- `ai-app install layout user kristianmandrup/my-app` - install app layout from repo
+- `ai-app install app kristianmandrup/my-app` - install src skeleton from repo 
+- `ai-app install skeleton user kristianmandrup/my-app` - install app skeleton from repo
 - `ai-app install pwa kristianmandrup/my-pwa` - install pwa from repo
 
 ### uninstall
@@ -70,22 +76,22 @@ Note: `pwa` is a Progressive Web App (manifest, service worker etc.) to make it 
 ### app
 
 The app of an Aurelia CLI generate project lives in `/src`.
-The app has a src layout, which typically consists of `resources`, `assets`, sub-apps etc.
+The app has a src skeleton, which typically consists of `resources`, `assets`, sub-apps etc.
 
-The app is generated via the `app` type, either created from a registered/custom layout or downloaded from a repo.
+The app is generated via the `app` type, either created from a registered/custom skeleton or downloaded from a repo.
 
-### sub apps (layout)
+### sub apps (skeleton)
 
-For complex apps, it can make sense with a `multi` app layout, with at least the following sub-apps:
+For complex apps, it can make sense with a `multi` app skeleton, with at least the following sub-apps:
 - guest (not logged in)
 - user (logged in)
 - admin (logged in with admin role)
 - ...
 
-Each of the sub-apps are generated with a specific layout. A sub-app can itself be a multi app layout 
+Each of the sub-apps are generated with a specific skeleton. A sub-app can itself be a multi app skeleton 
 for a truly nested application! 
 
-Sub-apps are generated via the `layout` type, either created from a registered/custom layout or downloaded from a repo.
+Sub-apps are generated via the `skeleton` type, either created from a registered/custom skeleton or downloaded from a repo.
 
 ### app components
 
@@ -98,6 +104,12 @@ These are traversed depth first to generate the full `install.json` higher up in
 Finally, a `pwa` can be created, installed from repo or uninstalled. Just like apps, 
 they can have different registered/custom layouts. 
 A pwa is also an app component with an (optional) `install.json` file.
+
+## Monterey integration
+
+Ideally we would like a web interface where you can get an overview of registered app layouts and skeletons, 
+pick and choose, then drag into your app to install it which runs the CLI commands underneath, gracefully
+maintaining and updating all dependencies etc.  
 
 ## Contributing
 
