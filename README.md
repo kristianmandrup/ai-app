@@ -1,5 +1,7 @@
 # Ai-app [![Build Status](https://secure.travis-ci.org/kristianmandrup/ai-app.png?branch=master)](http://travis-ci.org/kristianmandrup/ai-app) [![NPM version](https://badge-me.herokuapp.com/api/npm/ai-app.png)](http://badges.enytc.com/for/npm/ai-app)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/kristianmandrup/ai-app.svg)](https://greenkeeper.io/)
+
 > App management for Aurelia
 
 Will likely be integrated with [monterey](https://github.com/monterey-framework/monterey) at some point in the future.
