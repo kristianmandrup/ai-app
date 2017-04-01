@@ -33,11 +33,11 @@
   },
   "dependencies": {
     "ai-core": "^0.1.0",
-    "fs-extra": "^0.30.0"
+    "fs-extra": "^2.1.2"
   },
   "devDependencies": {
-    "chai": "~2.1.2",
-    "mocha": "~2.2.1"
+    "chai": "~3.5.0",
+    "mocha": "~3.2.0"
   },
   "keywords": []
 }
